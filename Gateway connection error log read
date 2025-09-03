@@ -1,0 +1,22 @@
+📍 3. Key Log Sections to Review
+GatewayService Logs (Gateway*.txt)
+
+Look for Connection errors such as:
+
+System.Net.Sockets.SocketException → Network blocked (firewall/proxy issue)
+
+System.ServiceModel.CommunicationException → TLS/SSL handshake failure
+
+The gateway is unreachable → Gateway cannot reach Power BI Service
+
+Query Execution Logs (QueryStart*.json / QueryEnd*.json)
+
+Open in Notepad++ or Visual Studio Code for readability.
+
+Search for:
+
+"duration" → Shows query execution time
+
+"exception" → If query failed, contains exact exception
+
+"datasource" → Confirms which source was being queried (SQL, Oracle, etc.)

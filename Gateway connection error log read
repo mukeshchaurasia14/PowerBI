@@ -20,3 +20,25 @@ Search for:
 "exception" → If query failed, contains exact exception
 
 "datasource" → Confirms which source was being queried (SQL, Oracle, etc.)
+
+
+📍 5. Validate Gateway Connectivity
+
+Test in Gateway UI → Data Source Settings → "Test Connection"
+
+Run Telnet/PS test from gateway server:
+
+Test-NetConnection -ComputerName pbiprodwus.centralus.data.microsoft.com -Port 443
+
+
+This ensures the gateway can reach Power BI cloud endpoints.
+
+📍 6. Common Fixes After Reading Logs
+
+Auth failures → Fix credentials in Manage Gateway → Data Sources.
+
+Firewall blocks → Ensure outbound TCP 443 is open to Power BI service endpoints.
+
+TLS issues → Update .NET Framework and enable TLS 1.2.
+
+Resource exhaustion → Monitor CPU/RAM usage on the gateway server, consider scaling out.
